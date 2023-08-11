@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  nodetunnel:
+    container_name: nodetunnel
+    image: thinhhv/nodetunnel:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ./.env:/app/.env
+      - ./config.yaml:/app/config/prod.yaml
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"

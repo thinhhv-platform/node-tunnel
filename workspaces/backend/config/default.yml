@@ -1,0 +1,57 @@
+node_env: "development"
+
+server:
+  host: 0.0.0.0
+  port: 8080
+  api:
+    version: 1.0.0
+    baseUrl: /api/v1/node-tunnel
+  swagger:
+    name: api-node-tunnel
+    description: Node Tunnel
+    hostname: 0.0.0.0:8080
+    schema: http
+    baseUrl: /docs/node-tunnel
+
+auth:
+  jwt:
+    expiresIn: 15m
+    expiresInRefreshToken: 1d
+    secret: '6aa55df71ac8f52e2e3b3cb87362a32a'
+    secretRefreshToken: '363f0bd87e303af4e008f828a8caee11'
+  swagger:
+    enable: false
+    username: node-tunnel
+    password: node-tunnel
+
+database:
+  # currently only support sqlite
+  default: sqlite
+  timeout: 3000
+  sqlite:
+    database: db_data/node-tunnel.db
+  redis:
+    enable: false
+    uri: redis://localhost/0
+    prefix: node-tunnel
+
+secrets:
+  aws:
+    accessKeyId: ""
+    secretAccessKey: ""
+    s3Bucket: "node-tunnel"
+    s3Path: "images"
+    regionName: "us-east-1"
+  telegram:
+    apiToken: ""
+    uid: 1234567
+
+services:
+  cronjob:
+    enable: false
+  telegram:
+    enable: false
+
+logger:
+  level: debug
+  autoLogging: true

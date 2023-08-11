@@ -1,0 +1,31 @@
+{
+  "name": "@nodetunnel/root",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A repo for NodeTunnel",
+  "author": "thinh@thinhhv.com",
+  "license": "ISC",
+  "main": "index.js",
+  "workspaces": {
+    "packages": [
+      "workspaces/*"
+    ]
+  },
+  "scripts": {
+    "start:app": "yarn app dev",
+    "start:api": "yarn api start",
+    "format": "yarn app format:fix && yarn api format:fix",
+    "lint": "yarn app lint && yarn api lint",
+    "lint:fix": "yarn app lint:fix && yarn api lint:fix",
+    "build": "yarn app build && yarn api build",
+    "app": "yarn workspace @nodetunnel/frontend",
+    "api": "yarn workspace @nodetunnel/backend"
+  },
+  "keywords": [
+    "nodetunnel",
+    "nestjs",
+    "react",
+    "monorepo",
+    "workspaces"
+  ]
+}
